@@ -321,6 +321,7 @@ func (v *IDTokenVerifier) Verify(ctx context.Context, rawIDToken string) (*IDTok
 		// to the one mandatory algorithm "RS256".
 		supportedSigAlgs = []jose.SignatureAlgorithm{jose.RS256}
 	}
+	fmt.Println(rawIDToken, supportedSigAlgs)
 	jws, err := jose.ParseSigned(rawIDToken, supportedSigAlgs)
 	if err != nil {
 		return nil, fmt.Errorf("oidc: malformed jwt: %v", err)
