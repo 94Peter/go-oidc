@@ -311,7 +311,9 @@ func (v *IDTokenVerifier) Verify(ctx context.Context, rawIDToken string) (*IDTok
 	}
 
 	var supportedSigAlgs []jose.SignatureAlgorithm
+	fmt.Println("supported alg", v.config.SupportedSigningAlgs)
 	for _, alg := range v.config.SupportedSigningAlgs {
+		fmt.Println("supported alg", alg)
 		supportedSigAlgs = append(supportedSigAlgs, jose.SignatureAlgorithm(alg))
 	}
 	if len(supportedSigAlgs) == 0 {
