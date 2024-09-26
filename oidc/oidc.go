@@ -128,6 +128,10 @@ func (p *Provider) remoteKeySet() KeySet {
 	return p.commonRemoteKeySet
 }
 
+func (p *Provider) GetAlgorithms() []string {
+	return p.algorithms
+}
+
 type providerJSON struct {
 	Issuer        string   `json:"issuer"`
 	AuthURL       string   `json:"authorization_endpoint"`
